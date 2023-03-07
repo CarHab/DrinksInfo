@@ -3,5 +3,4 @@ internal class DrinkModel
 {
     public int DrinkId { get; set; }
     public string DrinkName { get; set; }
-    public string DrinkUrlName { get; set; }
 }

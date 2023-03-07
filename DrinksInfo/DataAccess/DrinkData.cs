@@ -1,15 +1,13 @@
 ﻿namespace DrinksInfo.DataAccess;
-using System.Net.Http.Headers;
-
-internal static class DrinkData
+internal class DrinkData
 {
     private static readonly string _baseUrl = "https://www.thecocktaildb.com/api/json/v1/1/";
-    
-    public static async Task<string> GetDrinksFromCategory(string category)
+
+    public static async Task<string> GetDrink(string drinkId)
     {
         using HttpClient client = new();
 
-        string json = await client.GetStringAsync($"{_baseUrl}filter.php?c={category}");
+        string json = await client.GetStringAsync($"{_baseUrl}lookup.php?i={drinkId}");
 
         return json;
     }
